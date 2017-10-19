@@ -4,9 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIMD_Demo"
+        xmlns:operações="clr-namespace:SIMD_Demo.Operações"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="214*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210"/>
+            <ColumnDefinition Width="351*"/>
+        </Grid.ColumnDefinitions>
+
+        <operações:OperaçõesView Grid.Row="0" Grid.Column="0" Margin="4"/>
+
     </Grid>
 </Window>
