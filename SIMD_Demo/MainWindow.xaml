@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:SIMD_Demo"
         xmlns:operações="clr-namespace:SIMD_Demo.Operações"
         xmlns:operaçõesPorTrecho="clr-namespace:SIMD_Demo.OperaçõesPorTrecho"
+        xmlns:gráficos="clr-namespace:SIMD_Demo.Gráficos"
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1070" WindowStartupLocation="CenterScreen">
     <Grid>
@@ -20,6 +21,8 @@
 
         <operações:OperaçõesView Grid.Row="0" Grid.Column="0" Margin="4"/>
         <operaçõesPorTrecho:OperaçõesPorTrechoView Grid.Row="1" Grid.Column="0" Margin="4"/>
+
+        <gráficos:GráficosView Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>

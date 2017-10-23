@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Prism.Commands;
+using SIMD_Demo.Eventos;
 
 namespace SIMD_Demo.Operações
 {
@@ -33,6 +34,8 @@ namespace SIMD_Demo.Operações
             {
                 DatabaseProvider.Db.Delete(perfil);
             }
+
+            EventAggregatorProvider.EventAggregator.GetEvent<ExibirDadosEvent>().Publish(new ExibirDadosEvent());
         }
 
         private void CarregarDadosIniciais()
@@ -52,6 +55,8 @@ namespace SIMD_Demo.Operações
                     db.Insert(pontos);
                 }
             }
+
+            EventAggregatorProvider.EventAggregator.GetEvent<ExibirDadosEvent>().Publish(new ExibirDadosEvent());
         }
 
 
