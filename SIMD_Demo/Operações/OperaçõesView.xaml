@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:SIMD_Demo.Operações"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <local:OperaçõesViewModel/>
+    </UserControl.DataContext>
     <GroupBox Header="Operações">
         <Grid>
             <Grid.RowDefinitions>
@@ -14,9 +17,9 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             
-            <Button Content="Carregar dados inicias" Margin="4" Grid.Row="0"/>
-            <Button Content="Remover todos os dados" Margin="4" Grid.Row="1"/>
-            <Button Content="Aplicar transformação aos dados" Margin="4" Grid.Row="2"/>
+            <Button Content="Carregar dados inicias" Margin="4" Grid.Row="0" Command="{Binding OnCarregarDadosIniciais}"/>
+            <Button Content="Remover todos os dados" Margin="4" Grid.Row="1" Command="{Binding OnRemoverTodosDados}"/>
+            <Button Content="Aplicar transformação aos dados" Margin="4" Grid.Row="2" Command="{Binding OnAplicarTransformaçãoAosDados}"/>
         </Grid>
     </GroupBox>
 </UserControl>

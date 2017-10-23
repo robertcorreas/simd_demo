@@ -1,11 +1,18 @@
-﻿namespace SIMD_Demo
+﻿using System;
+using SimpleInMemoryDatabase.Lib.Api;
+
+namespace SIMD_Demo
 {
-    public class PontoPerfil
+    public class PontoPerfil : Entity
     {
-        public PontoPerfil(double profundidade, double valor)
+        public Perfil Perfil { get; private set; }
+
+
+        public PontoPerfil(double profundidade, double valor, Perfil perfil)
         {
             Profundidade = profundidade;
             Valor = valor;
+            Perfil = perfil;
         }
 
         public double Profundidade { get; private set; }
