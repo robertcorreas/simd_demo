@@ -23,7 +23,30 @@ namespace SIMD_Demo.Operações
 
         private void AplicarTransformaçãoAosDados()
         {
-            throw new NotImplementedException();
+            var db = DatabaseProvider.Db;
+
+            var perfis = db.GetAll<Perfil>().ToList();
+
+            if (perfis.Count == 2)
+            {
+                var perfil1 = perfis[0];
+                var perfil2 = perfis[1];
+
+                perfil1.TransformarDados();
+                perfil2.TransformarDados();
+
+                foreach (var pontoPerfil in perfil1.Pontos)
+                {
+                    db.Update(pontoPerfil);
+                }
+
+                foreach (var pontoPerfil in perfil2.Pontos)
+                {
+                    db.Update(pontoPerfil);
+                }
+
+                EventAggregatorProvider.EventAggregator.GetEvent<ExibirDadosEvent>().Publish(new ExibirDadosEvent());
+            }
         }
 
         private void RemoverTodosDados()

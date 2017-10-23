@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Documents;
 using SimpleInMemoryDatabase.Lib.Api;
 
 namespace SIMD_Demo
@@ -17,5 +18,15 @@ namespace SIMD_Demo
 
         public double Profundidade { get; private set; }
         public double Valor { get; private set; }
+
+        public void AlterarValor(double novoValor)
+        {
+            Valor = novoValor;
+        }
+
+        public override string ToString()
+        {
+            return $"Prof: {Profundidade} | Valor: {Valor.ToString("F4")}";
+        }
     }
 }
