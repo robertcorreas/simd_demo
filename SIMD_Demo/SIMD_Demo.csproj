@@ -45,6 +45,9 @@
     <Reference Include="InfragisticsWPF4.v13.2">
       <HintPath>..\Infragistics\InfragisticsWPF4.v13.2.dll</HintPath>
     </Reference>
+    <Reference Include="MathNet.Numerics, Version=3.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.3.20.0\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="Nuclex.Cloning, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nuclex.Cloning.1.0.0.0\lib\net40\Nuclex.Cloning.dll</HintPath>
     </Reference>
@@ -111,6 +114,7 @@
     <Compile Include="OperaçõesPorTrecho\OperaçõesPorTrechoView.xaml.cs">
       <DependentUpon>OperaçõesPorTrechoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OperaçõesPorTrecho\OperaçõesPorTrechoViewModel.cs" />
     <Compile Include="Operações\OperaçõesView.xaml.cs">
       <DependentUpon>OperaçõesView.xaml</DependentUpon>
     </Compile>

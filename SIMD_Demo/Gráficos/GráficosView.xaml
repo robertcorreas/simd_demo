@@ -16,18 +16,35 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
-        <ig:XamDataChart Title="RHOB" Grid.Column="0">
+
+        <ig:XamDataChart Title="RHOB" Grid.Column="0"  VerticalZoomable="True"
+                         VerticalZoombarVisibility="Collapsed"
+                         HorizontalZoomable="False"
+                         HorizontalZoombarVisibility="Hidden"
+                         PanModifier="Alt"
+                         WindowResponse="Immediate"
+                         DefaultInteraction="DragZoom">
             <ig:XamDataChart.Axes>
                 <ig:NumericXAxis x:Name="ScatterXAxis1" IsInverted="False" Title="Valor (g/cm3)" />
                 <ig:NumericYAxis x:Name="ScatterYAxis1" IsInverted="True" Title="Profundidade (m)"/>
             </ig:XamDataChart.Axes>
+
+            <ig:SyncManager.SyncSettings>
+                <ig:SyncSettings SyncChannel="mountGraphic" SynchronizeHorizontally="False" SynchronizeVertically="True" />
+            </ig:SyncManager.SyncSettings>
+
             <ig:XamDataChart.Series>
                 <ig:ScatterLineSeries YAxis="{Binding ElementName=ScatterYAxis1}" XAxis="{Binding ElementName=ScatterXAxis1}" ItemsSource="{Binding Item1.Pontos}" XMemberPath="Valor" YMemberPath="Profundidade" MarkerType="None" Brush="Blue" />
             </ig:XamDataChart.Series>
         </ig:XamDataChart>
 
-        <ig:XamDataChart Title="GRAY" Grid.Column="1">
+        <ig:XamDataChart Title="GRAY" Grid.Column="1"  VerticalZoomable="True"
+                         VerticalZoombarVisibility="Collapsed"
+                         HorizontalZoomable="False"
+                         HorizontalZoombarVisibility="Hidden"
+                         PanModifier="Alt"
+                         WindowResponse="Immediate"
+                         DefaultInteraction="DragZoom">
             <ig:XamDataChart.Axes>
                 <ig:NumericXAxis x:Name="ScatterXAxis2" IsInverted="False" Title="Valor (API)" />
                 <ig:NumericYAxis x:Name="ScatterYAxis2" IsInverted="True">
@@ -36,8 +53,13 @@
                     </ig:NumericYAxis.LabelSettings>
                 </ig:NumericYAxis>
             </ig:XamDataChart.Axes>
+
+            <ig:SyncManager.SyncSettings>
+                <ig:SyncSettings SyncChannel="mountGraphic" SynchronizeHorizontally="False" SynchronizeVertically="True" />
+            </ig:SyncManager.SyncSettings>
+
             <ig:XamDataChart.Series>
-                <ig:ScatterLineSeries YAxis="{Binding ElementName=ScatterYAxis2}" XAxis="{Binding ElementName=ScatterXAxis2}" ItemsSource="{Binding Item2.Pontos}" XMemberPath="Valor" YMemberPath="Profundidade" MarkerType="None" Brush="Black" />
+                <ig:ScatterLineSeries YAxis="{Binding ElementName=ScatterYAxis2}" XAxis="{Binding ElementName=ScatterXAxis2}" ItemsSource="{Binding Item2.Pontos}" XMemberPath="Valor" YMemberPath="Profundidade" MarkerType="Circle" MarkerBrush="Black" Brush="Transparent" MaximumMarkers="500" />
             </ig:XamDataChart.Series>
         </ig:XamDataChart>
     </Grid>
