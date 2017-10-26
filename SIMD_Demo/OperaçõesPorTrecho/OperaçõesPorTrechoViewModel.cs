@@ -90,46 +90,51 @@ namespace SIMD_Demo.OperaçõesPorTrecho
                 var perfil1 = perfis[0];
                 var perfil2 = perfis[1];
 
-                var valores = perfil1.Pontos.Select(x => x.Valor).ToList();
-                var profundidades = perfil1.Pontos.Select(x => x.Profundidade).ToList();
-
-                var interpolador = Interpolate.Linear(profundidades,valores);
-
-                var r = new Random();
-
-                for (double i = topo; i < @base; i+= intervalo)
-                {
-                    var decisão= r.Next(0, 100);
-
-                    double valor;
-                    if (decisão % 2 == 0)
-                    {
-                        valor = interpolador.Interpolate(i) + r.NextDouble();
-                    }
-                    else
-                    {
-                        valor = interpolador.Interpolate(i) - r.NextDouble();
-                    }
-
-                    // TODO não pode ser shallow copy. Adições em listas alteram o objeto original
-                    if (perfil1.Pontos.Any(x => x.Profundidade == i))
-                    {
-                        continue;
-                    }
-
-                    perfil1.AdicionarPontoPerfil(i, valor);
-
-                    var ponto = perfil1.Pontos.Single(x => x.Profundidade == i);
-
-                    DatabaseProvider.Db.Insert(ponto);
-                    
-                }
-
-                perfil1.Ordenar();
-                DatabaseProvider.Db.Update(perfil1);
+                InserirDados(perfil1, topo, @base, intervalo);
+                InserirDados(perfil2, topo, @base, intervalo);
                 EventAggregatorProvider.EventAggregator.GetEvent<ExibirDadosEvent>().Publish(new ExibirDadosEvent());
             }
 
+        }
+
+        private static void InserirDados(Perfil perfil1, double topo, double @base, double intervalo)
+        {
+            var valores = perfil1.Pontos.Select(x => x.Valor).ToList();
+            var profundidades = perfil1.Pontos.Select(x => x.Profundidade).ToList();
+
+            var interpolador = Interpolate.Linear(profundidades, valores);
+
+            var r = new Random();
+
+            for (double i = topo; i < @base; i += intervalo)
+            {
+                var decisão = r.Next(0, 100);
+
+                double valor;
+                if (decisão % 2 == 0)
+                {
+                    valor = interpolador.Interpolate(i) + r.NextDouble();
+                }
+                else
+                {
+                    valor = interpolador.Interpolate(i) - r.NextDouble();
+                }
+
+                // TODO não pode ser shallow copy. Adições em listas alteram o objeto original
+                if (perfil1.Pontos.Any(x => x.Profundidade == i))
+                {
+                    continue;
+                }
+
+                perfil1.AdicionarPontoPerfil(i, valor);
+
+                var ponto = perfil1.Pontos.Single(x => x.Profundidade == i);
+
+                DatabaseProvider.Db.Insert(ponto);
+            }
+
+            perfil1.Ordenar();
+            DatabaseProvider.Db.Update(perfil1);
         }
 
         public string Topo
