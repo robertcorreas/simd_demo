@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DeepCloner, Version=0.10.0.0, Culture=neutral, PublicKeyToken=dc0b95cf99bf4e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeepCloner.0.10.1\lib\net40\DeepCloner.dll</HintPath>
+    </Reference>
     <Reference Include="InfragisticsWPF4.Controls.Charts.XamDataChart.v13.2">
       <HintPath>..\Infragistics\InfragisticsWPF4.Controls.Charts.XamDataChart.v13.2.dll</HintPath>
     </Reference>
@@ -55,7 +58,7 @@
       <HintPath>..\packages\Prism.Core.6.3.0\lib\net45\Prism.dll</HintPath>
     </Reference>
     <Reference Include="SimpleInMemoryDatabaseLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInMemoryDatabase.1.0.2\lib\SimpleInMemoryDatabaseLib.dll</HintPath>
+      <HintPath>..\packages\SimpleInMemoryDatabase.1.0.4\lib\SimpleInMemoryDatabaseLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -77,6 +80,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Gráficos\ItemGráficoViewModel.cs" />
+    <Compile Include="Gráficos\PontoViewModel.cs" />
+    <Compile Include="Repositories\PerfilRepository.cs" />
     <Page Include="Gráficos\GráficosView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

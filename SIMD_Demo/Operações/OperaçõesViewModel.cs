@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Prism.Commands;
 using SIMD_Demo.Eventos;
+using SIMD_Demo.Repositories;
 
 namespace SIMD_Demo.Operações
 {
@@ -23,9 +24,7 @@ namespace SIMD_Demo.Operações
 
         private void AplicarTransformaçãoAosDados()
         {
-            var db = DatabaseProvider.Db;
-
-            var perfis = db.GetAll<Perfil>().ToList();
+            var perfis = PerfilRepository.ObterTodos().ToList();
 
             if (perfis.Count == 2)
             {
@@ -35,52 +34,35 @@ namespace SIMD_Demo.Operações
                 perfil1.TransformarDados();
                 perfil2.TransformarDados();
 
-                foreach (var pontoPerfil in perfil1.Pontos)
-                {
-                    db.Update(pontoPerfil);
-                }
+                PerfilRepository.Atualizar(new List<Perfil>() { perfil1, perfil2 }, atualizarPontos: true);
 
-                foreach (var pontoPerfil in perfil2.Pontos)
-                {
-                    db.Update(pontoPerfil);
-                }
-
-                EventAggregatorProvider.EventAggregator.GetEvent<ExibirDadosEvent>().Publish(new ExibirDadosEvent());
+                NotificarGráficos();
             }
+        }
+
+        private void NotificarGráficos()
+        {
+            EventAggregatorProvider.EventAggregator.GetEvent<ExibirDadosEvent>().Publish(new ExibirDadosEvent());
         }
 
         private void RemoverTodosDados()
         {
-            var perfis = DatabaseProvider.Db.GetAll<Perfil>();
-
-            foreach (var perfil in perfis)
-            {
-                DatabaseProvider.Db.Delete(perfil);
-            }
-
-            EventAggregatorProvider.EventAggregator.GetEvent<ExibirDadosEvent>().Publish(new ExibirDadosEvent());
+            PerfilRepository.RemoverTodos();
+            NotificarGráficos();
         }
 
         private void CarregarDadosIniciais()
         {
-            var db = DatabaseProvider.Db;
-            if (db.Count<Perfil>() != 0) return;
+            if (PerfilRepository.Quantidade() != 0) return;
 
             var leitor = new LeitorDadosEntrada(_caminhoArquivo);
             var perfis = leitor.ObterDados();
 
-            foreach (var perfil in perfis)
-            {
-                db.Insert(perfil);
+            PerfilRepository.Inserir(perfis);
 
-                foreach (var pontos in perfil.Pontos)
-                {
-                    db.Insert(pontos);
-                }
-            }
-
-            EventAggregatorProvider.EventAggregator.GetEvent<ExibirDadosEvent>().Publish(new ExibirDadosEvent());
+            NotificarGráficos();
         }
+
 
 
         public ICommand OnCarregarDadosIniciais { get; private set; }

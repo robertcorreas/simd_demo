@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Prism.Mvvm;
 using SIMD_Demo.Eventos;
+using SIMD_Demo.Repositories;
 
 namespace SIMD_Demo.Gráficos
 {
@@ -14,26 +10,14 @@ namespace SIMD_Demo.Gráficos
         private ItemGráficoViewModel _item1;
         private ItemGráficoViewModel _item2;
 
-        public ItemGráficoViewModel Item1
-        {
-            get => _item1;
-            private set { _item1 = value; RaisePropertyChanged(nameof(Item1));}
-        }
-
-        public ItemGráficoViewModel Item2
-        {
-            get => _item2;
-            private set { _item2 = value; RaisePropertyChanged(nameof(Item2)); }
-        }
-
         public GráficosViewModel()
         {
             Item1 = new ItemGráficoViewModel();
             Item2 = new ItemGráficoViewModel();
 
-            EventAggregatorProvider.EventAggregator.GetEvent<ExibirDadosEvent>().Subscribe((e) =>
+            EventAggregatorProvider.EventAggregator.GetEvent<ExibirDadosEvent>().Subscribe(e =>
             {
-                var perfis = DatabaseProvider.Db.GetAll<Perfil>().ToList();
+                var perfis = PerfilRepository.ObterTodos().ToList();
 
                 if (perfis.Count == 2)
                 {
@@ -47,37 +31,25 @@ namespace SIMD_Demo.Gráficos
                 }
             });
         }
-    }
 
-    public class ItemGráficoViewModel : BindableBase
-    {
-        public void CarregarDados(Perfil perfil)
+        public ItemGráficoViewModel Item1
         {
-            Pontos.Clear();
-
-            foreach (var pontoPerfil in perfil.Pontos)
+            get => _item1;
+            private set
             {
-                Pontos.Add(new PontoViewModel(pontoPerfil));
+                _item1 = value;
+                RaisePropertyChanged(nameof(Item1));
             }
         }
 
-        public ItemGráficoViewModel()
+        public ItemGráficoViewModel Item2
         {
-            Pontos = new ObservableCollection<PontoViewModel>();
-        }
-
-        public ObservableCollection<PontoViewModel> Pontos { get; private set; }
-    }
-
-    public class PontoViewModel : BindableBase
-    {
-        public double Profundidade { get; private set; }
-        public double Valor { get; private set; }
-
-        public PontoViewModel(PontoPerfil pontoPerfil)
-        {
-            Profundidade = pontoPerfil.Profundidade;
-            Valor = pontoPerfil.Valor;
+            get => _item2;
+            private set
+            {
+                _item2 = value;
+                RaisePropertyChanged(nameof(Item2));
+            }
         }
     }
 }

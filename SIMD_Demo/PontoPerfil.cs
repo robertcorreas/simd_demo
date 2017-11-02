@@ -1,14 +1,9 @@
-﻿using System;
-using System.Windows.Documents;
-using SimpleInMemoryDatabase.Lib.Api;
+﻿using SimpleInMemoryDatabase.Lib.Api;
 
 namespace SIMD_Demo
 {
     public class PontoPerfil : Entity
     {
-        public Perfil Perfil { get; private set; }
-
-
         public PontoPerfil(double profundidade, double valor, Perfil perfil)
         {
             Profundidade = profundidade;
@@ -16,7 +11,9 @@ namespace SIMD_Demo
             Perfil = perfil;
         }
 
-        public double Profundidade { get; private set; }
+        public Perfil Perfil { get; }
+
+        public double Profundidade { get; }
         public double Valor { get; private set; }
 
         public void AlterarValor(double novoValor)
@@ -26,7 +23,7 @@ namespace SIMD_Demo
 
         public override string ToString()
         {
-            return $"Prof: {Profundidade} | Valor: {Valor.ToString("F4")}";
+            return $"Prof: {Profundidade} | Valor: {Valor:F4}";
         }
     }
 }
