@@ -18,8 +18,8 @@ namespace SIMD_Demo
         {
             var database = DatabaseCreator.Create();
 
-            database.CreateTable<Perfil>(p => p.Id);
-            database.CreateTable<PontoPerfil>(p => p.Id);
+            database.CreateTable<Perfil>();
+            database.CreateTable<PontoPerfil>();
 
             database.CreateOneToMany<Perfil, PontoPerfil>(p => p.Perfil.Id, cascateDeletion: true);
 
