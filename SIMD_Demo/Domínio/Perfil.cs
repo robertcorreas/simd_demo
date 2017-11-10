@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SimpleInMemoryDatabase.Lib.Api;
 
-namespace SIMD_Demo
+namespace SIMD_Demo.Domínio
 {
     public class Perfil : Entity
     {

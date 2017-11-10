@@ -1,6 +1,6 @@
 ﻿using SimpleInMemoryDatabase.Lib.Api;
 
-namespace SIMD_Demo
+namespace SIMD_Demo.Domínio
 {
     public class PontoPerfil : Entity
     {

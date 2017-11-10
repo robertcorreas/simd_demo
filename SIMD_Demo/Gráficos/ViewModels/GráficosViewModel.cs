@@ -1,9 +1,10 @@
 ﻿using System.Linq;
 using Prism.Mvvm;
 using SIMD_Demo.Eventos;
+using SIMD_Demo.Providers;
 using SIMD_Demo.Repositories;
 
-namespace SIMD_Demo.Gráficos
+namespace SIMD_Demo.Gráficos.ViewModels
 {
     public class GráficosViewModel : BindableBase
     {

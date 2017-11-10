@@ -6,7 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Prism.Commands;
+using SIMD_Demo.Domínio;
 using SIMD_Demo.Eventos;
+using SIMD_Demo.Providers;
 using SIMD_Demo.Repositories;
 
 namespace SIMD_Demo.Operações

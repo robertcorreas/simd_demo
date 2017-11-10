@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SIMD_Demo.Domínio;
+using SIMD_Demo.Providers;
 
 namespace SIMD_Demo.Repositories
 {

@@ -5,7 +5,9 @@ using System.Windows.Input;
 using MathNet.Numerics;
 using Prism.Commands;
 using Prism.Mvvm;
+using SIMD_Demo.Domínio;
 using SIMD_Demo.Eventos;
+using SIMD_Demo.Providers;
 using SIMD_Demo.Repositories;
 
 namespace SIMD_Demo.OperaçõesPorTrecho

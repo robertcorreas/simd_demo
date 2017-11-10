@@ -1,7 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using Prism.Mvvm;
+using SIMD_Demo.Domínio;
 
-namespace SIMD_Demo.Gráficos
+namespace SIMD_Demo.Gráficos.ViewModels
 {
     public class ItemGráficoViewModel : BindableBase
     {

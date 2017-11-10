@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
+using SIMD_Demo.Domínio;
 using Xunit;
 
 namespace SIMD_Demo.Tests

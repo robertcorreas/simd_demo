@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Prism.Events;
 
 namespace SIMD_Demo.Eventos
 {
-    public class ExibirDadosEvent : Prism.Events.PubSubEvent<ExibirDadosEvent>
+    public class ExibirDadosEvent : PubSubEvent<ExibirDadosEvent>
     {
     }
 }

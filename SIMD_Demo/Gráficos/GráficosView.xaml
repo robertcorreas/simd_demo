@@ -5,10 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SIMD_Demo.Gráficos"
              xmlns:ig="http://schemas.infragistics.com/xaml"
+             xmlns:viewModels="clr-namespace:SIMD_Demo.Gráficos.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.DataContext>
-        <local:GráficosViewModel/>
+        <viewModels:GráficosViewModel/>
     </UserControl.DataContext>
     <Grid>
         

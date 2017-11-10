@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using SimpleInMemoryDatabase.Lib.Api;
+using SIMD_Demo.Domínio;
+using SIMD_Demo.Providers;
 
 namespace SIMD_Demo
 {

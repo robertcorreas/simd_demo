@@ -77,8 +77,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Gráficos\ItemGráficoViewModel.cs" />
-    <Compile Include="Gráficos\PontoViewModel.cs" />
+    <Compile Include="Gráficos\ViewModels\ItemGráficoViewModel.cs" />
+    <Compile Include="Gráficos\ViewModels\PontoViewModel.cs" />
     <Compile Include="Repositories\PerfilRepository.cs" />
     <Page Include="Gráficos\GráficosView.xaml">
       <SubType>Designer</SubType>
@@ -92,14 +92,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DatabaseProvider.cs" />
-    <Compile Include="EventAggregatorProvider.cs" />
+    <Compile Include="Providers\DatabaseProvider.cs" />
+    <Compile Include="Providers\EventAggregatorProvider.cs" />
     <Compile Include="Eventos\ExibirDadosEvent.cs" />
     <Compile Include="Gráficos\GráficosView.xaml.cs">
       <DependentUpon>GráficosView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gráficos\GráficosViewModel.cs" />
-    <Compile Include="LeitorDadosEntrada.cs" />
+    <Compile Include="Gráficos\ViewModels\GráficosViewModel.cs" />
+    <Compile Include="Domínio\LeitorDadosEntrada.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -122,8 +122,8 @@
       <DependentUpon>OperaçõesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Operações\OperaçõesViewModel.cs" />
-    <Compile Include="Perfil.cs" />
-    <Compile Include="PontoPerfil.cs" />
+    <Compile Include="Domínio\Perfil.cs" />
+    <Compile Include="Domínio\PontoPerfil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

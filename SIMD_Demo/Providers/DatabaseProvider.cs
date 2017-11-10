@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SimpleInMemoryDatabase.Lib.Api;
 
-namespace SIMD_Demo
+namespace SIMD_Demo.Providers
 {
     public static class DatabaseProvider
     {
