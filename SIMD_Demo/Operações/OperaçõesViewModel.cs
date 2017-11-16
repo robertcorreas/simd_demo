@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Prism.Commands;
-using SIMD_Demo.Domínio;
 using SIMD_Demo.Eventos;
 using SIMD_Demo.Providers;
 using SIMD_Demo.Repositories;
+using SIMD_Demo.Repositories.Domínio;
+using SIMD_Demo.Repositories.Repos;
 
 namespace SIMD_Demo.Operações
 {

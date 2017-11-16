@@ -3,6 +3,7 @@ using Prism.Mvvm;
 using SIMD_Demo.Eventos;
 using SIMD_Demo.Providers;
 using SIMD_Demo.Repositories;
+using SIMD_Demo.Repositories.Repos;
 
 namespace SIMD_Demo.Gráficos.ViewModels
 {

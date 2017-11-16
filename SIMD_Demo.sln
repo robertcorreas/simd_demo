@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMD_Demo", "SIMD_Demo\SIMD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMD_Demo.Tests", "SIMD_Demo.Tests\SIMD_Demo.Tests.csproj", "{D9752DFC-9B02-4AA0-B9F6-37D5F95E90F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMD_Demo.Repositories", "SIMD_Demo.Repositories\SIMD_Demo.Repositories.csproj", "{CE97733B-13F0-4CA4-B997-B9FE9E2E00F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D9752DFC-9B02-4AA0-B9F6-37D5F95E90F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9752DFC-9B02-4AA0-B9F6-37D5F95E90F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9752DFC-9B02-4AA0-B9F6-37D5F95E90F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE97733B-13F0-4CA4-B997-B9FE9E2E00F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE97733B-13F0-4CA4-B997-B9FE9E2E00F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE97733B-13F0-4CA4-B997-B9FE9E2E00F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE97733B-13F0-4CA4-B997-B9FE9E2E00F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

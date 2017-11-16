@@ -78,9 +78,9 @@
     <Analyzer Include="..\packages\xunit.analyzers.0.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SIMD_Demo\SIMD_Demo.csproj">
-      <Project>{684b1b2f-8e02-4681-938a-6b7a2c1b9f7a}</Project>
-      <Name>SIMD_Demo</Name>
+    <ProjectReference Include="..\SIMD_Demo.Repositories\SIMD_Demo.Repositories.csproj">
+      <Project>{ce97733b-13f0-4ca4-b997-b9fe9e2e00f4}</Project>
+      <Name>SIMD_Demo.Repositories</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

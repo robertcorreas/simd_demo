@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using Prism.Mvvm;
-using SIMD_Demo.Domínio;
+using SIMD_Demo.Repositories.Domínio;
 
 namespace SIMD_Demo.Gráficos.ViewModels
 {

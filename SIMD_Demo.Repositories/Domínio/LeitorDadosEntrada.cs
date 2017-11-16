@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
-namespace SIMD_Demo.Domínio
+namespace SIMD_Demo.Repositories.Domínio
 {
     public class LeitorDadosEntrada
     {

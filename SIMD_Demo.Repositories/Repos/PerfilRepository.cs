@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SIMD_Demo.Domínio;
-using SIMD_Demo.Providers;
+using SIMD_Demo.Repositories.DBProvider;
+using SIMD_Demo.Repositories.Domínio;
 
-namespace SIMD_Demo.Repositories
+namespace SIMD_Demo.Repositories.Repos
 {
     public static class PerfilRepository
     {

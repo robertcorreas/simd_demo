@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
 using MathNet.Numerics;
+using MathNet.Numerics.Statistics;
 using Prism.Commands;
 using Prism.Mvvm;
-using SIMD_Demo.Domínio;
 using SIMD_Demo.Eventos;
 using SIMD_Demo.Providers;
 using SIMD_Demo.Repositories;
+using SIMD_Demo.Repositories.Domínio;
+using SIMD_Demo.Repositories.Repos;
 
 namespace SIMD_Demo.OperaçõesPorTrecho
 {
@@ -116,8 +119,8 @@ namespace SIMD_Demo.OperaçõesPorTrecho
         {
             double topo, @base, intervalo;
 
-            if (double.TryParse(Topo, out topo) && double.TryParse(Base, out @base) &&
-                double.TryParse(Intervalo, out intervalo))
+            if (double.TryParse(Topo, NumberStyles.Number, CultureInfo.InvariantCulture, out topo) && double.TryParse(Base, NumberStyles.Number, CultureInfo.InvariantCulture, out @base) &&
+                double.TryParse(Intervalo, NumberStyles.Number, CultureInfo.InvariantCulture, out intervalo))
             {
                 var perfis = PerfilRepository.ObterTodos().ToList();
 
@@ -140,6 +143,7 @@ namespace SIMD_Demo.OperaçõesPorTrecho
             var interpolador = Interpolate.Linear(profundidades, valores);
 
             var r = new Random();
+            var médiaValores = valores.Mean();
             var pontos = new List<PontoPerfil>();
             for (var i = topo; i < @base; i += intervalo)
             {
